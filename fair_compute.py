@@ -68,9 +68,9 @@ def get_prediction(prompt, numpy_image=None):
 
 
 iface = gr.Interface(fn=get_prediction,
-                     inputs=[gr.Textbox(label="Enter a text Prompt"), gr.Image(label="Upload Image", type="numpy")],
+                     inputs=[gr.Textbox(label="Enter a text Prompt"), gr.Image(label="Upload Image or Capture from Webcam using the webcam icon", type="numpy")],
                      outputs=[gr.Text(label="Model Response")],
-                     title="LLaVA Model API Interaction",
+                     title="SnapshotSyntax: Syntax of Snapshots Explained",
                      description="Upload an image and/or enter a text prompt to get a response from the LLaVA model.")
 
 
