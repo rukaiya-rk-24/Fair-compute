@@ -36,7 +36,7 @@ async def fetch_prediction(prompt, numpy_image):
     url = "http://35.233.231.20:5003/api/generate"
     data = json.dumps({
         "model": "llava:34b-v1.6",
-        "prompt": prompt,
+        "prompt":  "You are an expert doctor. Look at the image carefully and prescribe accurately",
         "images": [encoded_image] if encoded_image else [],
     })
     headers = {'Content-Type': 'application/json'}
@@ -68,10 +68,10 @@ def get_prediction(prompt, numpy_image=None):
 
 
 iface = gr.Interface(fn=get_prediction,
-                     inputs=[gr.Textbox(label="Enter a text Prompt"), gr.Image(label="Upload Image or Capture from Webcam using the webcam icon", type="numpy")],
+                     inputs=[ gr.Image(label="Upload Image or Capture from Webcam using the webcam icon", type="numpy")],
                      outputs=[gr.Text(label="Model Response")],
-                     title="SnapshotSyntax: Syntax of Snapshots Explained",
-                     description="Upload an image and/or enter a text prompt to get a response from the LLaVA model.")
+                     title="DocuBot: Your AI Medical Advisor",
+                     description="Upload an image and/or enter a text prompt to receive prescriptions from AI doctor.")
 
 
 iface.dependencies[0]["show progress"]="hidden"
