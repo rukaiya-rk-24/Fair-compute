@@ -33,10 +33,11 @@ async def fetch_prediction(prompt, numpy_image):
     encoded_image = numpy_image_to_base64(numpy_image) if numpy_image is not None else None
 
     # Your API endpoint and payload
-    url = "http://35.233.231.20:5003/api/generate"
+    url = "http://8.12.5.48:11434/api/generate"
     data = json.dumps({
         "model": "llava:34b-v1.6",
         "prompt":  "You are an expert doctor. Look at the image carefully and prescribe accurately",
+        "stream":True,
         "images": [encoded_image] if encoded_image else [],
     })
     headers = {'Content-Type': 'application/json'}
